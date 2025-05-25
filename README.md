@@ -18,10 +18,10 @@ This tool allows you to fetch and analyze hot liquidity pools using a GraphQL en
 
 1. **Clone the repository**
 
-   ```bash
-   git clone https://github.com/yourusername/dump-hotpools-graphql.git
-   cd dump-hotpools-graphql
-   ```
+    ```bash
+    git clone https://github.com/yourusername/dump-hotpools-graphql.git
+    cd dump-hotpools-graphql
+    ```
 
 2. **Install dependencies**
 
@@ -43,9 +43,9 @@ This tool allows you to fetch and analyze hot liquidity pools using a GraphQL en
 ## ▶️ Running the Project
 Start the app using:
 
-    ```bash
-    npm start
-    ```
+```bash
+npm start
+```
 
 ## 📧 Contact
 For support or inquiries, contact: superdevpp@gmail.com
