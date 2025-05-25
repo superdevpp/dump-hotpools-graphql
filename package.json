@@ -1,0 +1,24 @@
+{
+  "name": "dump-hotpools-graphql",
+  "version": "1.0.0",
+  "description": "Dump hotpools with graphql",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "type": "module",
+  "keywords": [
+    "MEV",
+    "Arbitrage",
+    "DEX",
+    "DeFi",
+    "Uniswap",
+    "GraphQL"
+  ],
+  "author": "@superdevpp",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "node-fetch": "^3.3.2"
+  }
+}

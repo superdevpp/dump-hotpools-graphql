@@ -1,0 +1,66 @@
+import 'dotenv/config';
+import fetch from 'node-fetch';
+import fs from 'fs';
+
+async function dumpHotPools() {
+    const query = `
+    query MyQuery {
+    pairs(first: 1000, orderBy: txCount, orderDirection: desc) {
+        reserve0
+        reserve1
+        token0 {
+            name
+            symbol
+            decimals
+            id
+        }
+        token1 {
+            decimals
+            name
+            symbol
+            id
+        }
+        txCount
+        id
+    }
+    }
+  `;
+
+    const response = await fetch('https://thegraph.com/explorer/api/playground/' + process.env.UNISWAP_V2_GRAPHQL_API_KEY, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query })
+    });
+
+    const json = await response.json();
+
+    if (json.errors) {
+        console.error("GraphQL Error:", json.errors);
+        return;
+    }
+
+    const pools = json.data.pairs;
+
+    // CSV Header
+    const header = 'pool_id,pair,token0_id,token0_decimals,token0_symbol,token0_name,token1_id,token1_decimals,token1_symbol,token1_name\n';
+
+    // Format rows
+    const rows = pools.map(pool => {
+        return `${pool.id},${pool.token0.symbol}/${pool.token1.symbol},${pool.token0.id},${pool.token0.decimals},${pool.token0.symbol},${pool.token0.name},${pool.token1.id},${pool.token1.decimals},${pool.token1.symbol},${pool.token1.name}`;
+    });
+
+    const csvContent = header + rows.join('\n');
+
+    // Format timestamp for filename
+    const now = new Date();
+    const timestamp = now.toISOString().replace(/[:.]/g, '-');
+    const filename = `./out/top_pools_${timestamp}.csv`;
+
+    // Write to file
+    fs.writeFileSync(filename, csvContent, 'utf8');
+
+    console.log(`✅ CSV file written: ${filename}`);
+
+}
+
+dumpHotPools();
