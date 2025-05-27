@@ -3,29 +3,12 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 import * as constants from './constants.js';
 
+/**
+ * dumpHotPools_UniswapV2
+ * @returns 
+ */
 async function dumpHotPools_UniswapV2() {
-    const query = `
-        query MyQuery {
-            pairs(first: 1000, orderBy: txCount, orderDirection: desc) {
-                reserve0
-                reserve1
-                token0 {
-                    name
-                    symbol
-                    decimals
-                    id
-                }
-                token1 {
-                    decimals
-                    name
-                    symbol
-                    id
-                }
-                txCount
-                id
-            }
-        }
-  `;
+    const query = constants.GRAPHQL_QUERY_DUMP_POOLS_UNISWAPV2;
 
     const response = await fetch(constants.GRAPHQL_BASE_ENDPOINT + process.env.UNISWAP_V2_GRAPHQL_API_KEY, {
         method: 'POST',
@@ -69,30 +52,12 @@ async function dumpHotPools_UniswapV2() {
     console.log(`✅ CSV file written: ${filename}`);
 }
 
+/**
+ * dumpHotPools_Sushiswap
+ * @returns 
+ */
 async function dumpHotPools_Sushiswap() {
-    const query = `
-        query MyQuery {
-            pairs(first: 500, orderBy: txCount, orderDirection: desc) {
-                reserve0
-                reserve1
-                token0 {
-                    name
-                    symbol
-                    decimals
-                    id
-                }
-                token1 {
-                    decimals
-                    name
-                    symbol
-                    id
-                }
-                txCount
-                id
-            }
-        }
-  `;
-
+    const query = constants.GRAPHQL_QUERY_DUMP_POOLS_SUSHISWAP;
     const response = await fetch(constants.GRAPHQL_BASE_ENDPOINT + process.env.SUSHISWAP_GRAPHQL_API_KEY, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
