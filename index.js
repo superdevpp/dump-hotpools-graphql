@@ -6,6 +6,8 @@ import * as uniswapv2 from './modules/uniswapv2.js';
 import * as sushiswap from './modules/sushiswap.js';
 import * as shibaswap from './modules/shibaswap.js';
 
+console.log(`▶️ Starting the process...`);
+
 const rows_uniswapv2 = await uniswapv2.getHotPools();
 const rows_sushiswap = await sushiswap.getHotPools();
 const rows_shibaswap = await shibaswap.getHotPools();
