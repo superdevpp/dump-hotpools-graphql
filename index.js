@@ -6,7 +6,7 @@ import * as uniswapv2 from './modules/uniswapv2.js';
 import * as sushiswap from './modules/sushiswap.js';
 import * as shibaswap from './modules/shibaswap.js';
 
-console.log(`▶️ Starting the process...`);
+console.log(constants.MESSAGE_START);
 
 const rows_uniswapv2 = await uniswapv2.getHotPools();
 const rows_sushiswap = await sushiswap.getHotPools();
@@ -21,8 +21,8 @@ const csvContent = constants.CSV_HEADER + '\n' +
 // Format timestamp for filename
 const now = new Date();
 const timestamp = now.toISOString().replace(/[:.]/g, '-');
-const filename = `./out/hotpools_${timestamp}.csv`;
+const filename = `${constants.TEXT_FILENAME}_${timestamp}.csv`;
 
 // Write to file
 fs.writeFileSync(filename, csvContent, 'utf8');
-console.log(`✅ CSV file written: ${filename}`);
+console.log(`${constants.MESSAGE_END} ${filename}`);

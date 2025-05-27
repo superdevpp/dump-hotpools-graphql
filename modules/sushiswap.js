@@ -40,7 +40,7 @@ export async function getHotPools() {
     const json = await response.json();
 
     if (json.errors) {
-        console.error("❌ GraphQL Error:", json.errors);
+        console.error(constants.MESSAGE_ERR_GRAPHQL, json.errors);
         return [];
     }
 
