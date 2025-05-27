@@ -34,7 +34,7 @@ This tool allows you to fetch and analyze hot liquidity pools using a GraphQL en
     Create a `.env` file in the root directory and add your Uniswap V2 GraphQL API key:
 
     ```env
-    UNISWAP_V2_GRAPHQL_API_KEY=xxx
+    GRAPHQL_API_KEY_UNISWAP_V2 = xxx
     ```
 
     🔐 This API key should be fetched via The Graph. You can obtain your own from The Graph Hosted Service.
