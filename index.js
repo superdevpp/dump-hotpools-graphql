@@ -21,7 +21,7 @@ const csvContent = constants.CSV_HEADER + '\n' +
 // Format timestamp for filename
 const now = new Date();
 const timestamp = now.toISOString().replace(/[:.]/g, '-');
-const filename = `${constants.TEXT_FILENAME}_${timestamp}.csv`;
+const filename = `${constants.MESSAGE_FILENAME}_${timestamp}.csv`;
 
 // Write to file
 fs.writeFileSync(filename, csvContent, 'utf8');

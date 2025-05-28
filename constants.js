@@ -18,5 +18,4 @@ export const DEX_NAME_SHIBASWAP = 'shibaswap';
 export const MESSAGE_START = '▶️ Starting the process...';
 export const MESSAGE_END = '✅ CSV file written: ';
 export const MESSAGE_ERR_GRAPHQL = '❌ GraphQL Error:';
-
-export const TEXT_FILENAME = './out/hotpools_';
+export const MESSAGE_FILENAME = './out/hotpools';
