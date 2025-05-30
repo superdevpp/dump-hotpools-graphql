@@ -16,6 +16,10 @@ export const POOLS_UNISWAP_V3 = 200;//1000;
 
 export const DEX_NAME_UNISWAP_V3 = 'uniswap-v3';
 
+
+export const DEX_PROTOCOL_UNI_V2_STYLE = 'uni-v2';
+export const DEX_PROTOCOL_UNI_V3_STYLE = 'uni-v3';
+
 // MESSAGES
 export const MESSAGE_START = '▶️ Starting the process...';
 export const MESSAGE_END = '✅ CSV file written: ';
