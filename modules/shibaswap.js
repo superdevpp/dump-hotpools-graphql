@@ -53,10 +53,10 @@ export async function getHotPools() {
             pool.token1 && pool.token1.id && pool.token1.decimals !== undefined && pool.token1.symbol && pool.token1.name
         )
         .map(pool => {
-            return `${constants.DEX_NAME_SHIBASWAP},${constants.DEX_PROTOCOL_UNI_V2_STYLE},${pool.id},${pool.token0.symbol}/${pool.token1.symbol},${pool.token0.id},${pool.token0.decimals},${pool.token0.symbol},${pool.token0.name},${pool.token1.id},${pool.token1.decimals},${pool.token1.symbol},${pool.token1.name}`;
+            return `${pool.id},${constants.DEX_NAME_SHIBASWAP},${constants.DEX_PROTOCOL_UNI_V2_STYLE},${pool.token0.symbol}/${pool.token1.symbol},${pool.token0.id},${pool.token0.decimals},${pool.token0.symbol},${pool.token0.name},${pool.token1.id},${pool.token1.decimals},${pool.token1.symbol},${pool.token1.name}`;
         });
 
     console.log(`✔️ ${constants.DEX_NAME_SHIBASWAP}`);
-    // dex_name | dex_protocol | pool_id | pair | token0_id | token0_decimals | token0_symbol | token0_name | token1_id | token1_decimals | token1_symbol | token1_name
+    // id | dex_name | dex_protocol | pair | token0_id | token0_decimals | token0_symbol | token0_name | token1_id | token1_decimals | token1_symbol | token1_name
     return rows;
 }
